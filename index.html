@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paillier Encryption</title>
+</head>
+
+<body>
+    <h3>Paillier Encryption and Decryption</h3>
+    <div id="pqinput" align="center">
+        <h3>Enter p and q inputs</h3>
+        <form>
+            <label>P input</label>
+            <input id="p_input" type="number">
+            <br>
+            <br>
+            <label>Q input </label>
+            <input id="q_input" type="number">
+            <br><br>
+            <input type="button" value="submit" onclick="getParameters()">
+            <p id="n">
+            </p>
+            <p id="g"></p>
+            <p id="n2"></p>
+            <p id="mult"></p>
+            <p id="pq-1"></p>
+
+    </div>
+    <br>
+    <div align="center">
+        <h3>Encryption</h3>
+        <form action="">
+            <label>m1 input plaintext</label>
+            <input id="m1" type="number">
+            <br>
+            <br>
+            <label>Enter first random number </label>
+            <input id="r1" type="number">
+            <br><br>
+            <input onclick="encryptFirst()" type="button" value="encrypt1">
+        </form>
+        <br><br> >
+        <p id="cipher"></p <form>
+        <label>m2 input </label>
+        <input id="m2" type=" number ">
+        <br><br>
+        <label>Enter second random number </label>
+        <input id="r2" type=" number ">
+        <br><br>
+        <input onclick="encryptSecond()" type="button" value="encrypt2">
+
+        </form>
+        <br><br>
+        <form action="">
+            <label>m3 input </label>
+            <input id="m3" type="number">
+            <br><br>
+            <label>Enter third random number  </label>
+            <input id="r3" type="number">
+            <br><br>
+            <input onclick="encryptThird()" type="button" value="encrypt3">
+        </form>
+    </div>
+    <br>
+    <div align="center">
+        <h3>Decryption</h3>
+    </div>
+
+</body>
+
+</html>
+<script src="index.js "></script>
