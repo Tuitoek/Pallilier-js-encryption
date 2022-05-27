@@ -6,8 +6,10 @@ var gs = [];
 var number2 = [];
 var mods = [];
 var nsquared = [];
-// Login encapsulated in a function
+//  encapsulated in a function
 // to get parameters and calculate n and g
+var p = document.getElementById("p_input").value;
+console.log(p)
 
 function getParameters() {
     var p = document.getElementById("p_input").value;
