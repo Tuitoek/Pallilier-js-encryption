@@ -10,7 +10,7 @@
 
 <body>
     <h3>Paillier Encryption and Decryption</h3>
-    <div id="pqinput" align="center">
+    <div id="pqinput">
         <h3>Enter p and q inputs</h3>
         <form>
             <label>P input</label>
@@ -20,21 +20,42 @@
             <label>Q input </label>
             <input id="q_input" type="number">
             <br><br>
-            <input type="button" value="submit" onclick="getParameters()">
             <p id="n">
             </p>
             <p id="g"></p>
             <p id="n2"></p>
             <p id="mult"></p>
             <p id="pq-1"></p>
+            <label>m1 input plaintext</label>
+            <input id="m1" type="number" name="m1">
+            <br>
+            <br>
+            <label>Enter first random number </label>
+            <input id="r1" type="number">
+            <br><br>
+
+            <label>m2 input </label>
+            <input id="m2" type=" number ">
+            <br><br>
+            <label>Enter second random number </label>
+            <input id="r2" type=" number ">
+            <br><br>
+            <label>m3 input </label>
+            <input id="m3" type="number">
+            <br><br>
+            <label>Enter third random number  </label>
+            <input id="r3" type="number">
+            <br><br>
+            <input type="button" value="encrypt" onclick="getParameters()">
+
 
     </div>
     <br>
-    <div align="center">
+    <!-- <div>
         <h3>Encryption</h3>
-        <form action="">
+        <form id="encrypt_first" action="post">
             <label>m1 input plaintext</label>
-            <input id="m1" type="number">
+            <input id="m1" type="number" name="m1">
             <br>
             <br>
             <label>Enter first random number </label>
@@ -42,7 +63,7 @@
             <br><br>
             <input onclick="encryptFirst()" type="button" value="encrypt1">
         </form>
-        <br><br> >
+        <br><br>
         <p id="cipher">
         </p>
         <form id="pqinputs" methood="post">
@@ -65,7 +86,7 @@
             <br><br>
             <input onclick="encryptThird()" type="button" value="encrypt3">
         </form>
-    </div>
+    </div> -->
     <br>
     <div align="center">
         <h3>Decryption</h3>

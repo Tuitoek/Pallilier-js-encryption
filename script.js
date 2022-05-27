@@ -1,6 +1,7 @@
 const pqform = document.getElementById('pqinputs');
 const p_input = document.getElementById('p_input');
 const q_input = document.getElementById('q_input');
+const encryptFirstForm = document.getElementById('encrypt_first')
 
 // Function to get the target value of  p input without function 
 const p = p_input.addEventListener('click', function(e) {
@@ -41,10 +42,33 @@ function getParameters() {
     // Calculating mod 
     const mod = n % g
 
+
+
     isHex(p, q)
     checkByteSize(p, q)
     getMod(n, g)
     modNsquared(n, g, n2)
+
+    const m1 = document.getElementById('m1').value;
+    const r1 = document.getElementById('r1').value;
+    const m2 = document.getElementById('m2').value;
+    const r2 = document.getElementById('r2').value;
+    const m3 = document.getElementById('m3').value;
+    const r3 = document.getElementById('r3').value;
+    console.log(m1)
+    console.log(r1)
+    console.log(m2)
+    console.log(r2)
+    console.log(m3)
+    console.log(r3)
+
+    // Code for getting the cipher text 
+    const firstCipher = getCipher(r1, g, m1, n, n2)
+    const secondCipher = getCipher(r2, g, m2, n, n2)
+    const thirdCipher = getCipher(r3, g, m3, n, n2)
+
+    const C = firstCipher * secondCipher * thirdCipher
+    console.log(C)
 
     // Displaying the calculated values  on html
     document.getElementById("n").innerHTML = "N = " + n;
@@ -106,26 +130,17 @@ function checkByteSize(p, q) {
 }
 
 //Function to check byte size of m1,m2 and m3
-function checkByteSize(p) {
+function checkByteSizeOfM(p) {
     let p_size = new Blob([p]).size
     if (p_size < 4) {
-        alert("Input is valid")
+        alert("m Input byte size is valid")
         return "valid input "
     } else {
-        alert("Invalid input!Please enter a valid input of small byte size")
+        alert("Invalid input!Please enter a valid input of small byte size of m")
         return "Invalid Input "
     }
 }
 
-//Function to encrypt first inputs
-function encryptFirst() {
-    const m1 = document.getElementById('m1').value;
-    const r1 = document.getElementById('r1').value;
-
-
-
-
-}
 
 // Function to get mod
 function getMod(n, g) {
@@ -139,4 +154,29 @@ function modNsquared(n, g, n2) {
     console.log(mod * n2)
     return mod * n2
 }
-//Function for g
+
+//Function for g power m1
+function gPowerm(g, m) {
+    console.log(Math.pow(g, m))
+    return Math.pow(g, m)
+}
+
+// Function get cipher
+function getCipher(r, g, m, n2, n) {
+    // Multiply  g^ m1  and modN2
+    const gmMod = gPowerm(g, m) * modNsquared(n, g, n2);
+    // Multiply
+    const rModSquared = r * modNsquared(n, g, n2)
+    const result = (gmMod * rModSquared) * modNsquared(n, g, n2)
+    console.log(result)
+    return result
+}
+
+// //Function to encrypt first inputs
+// function encryptFirst() {
+//     const m1 = document.getElementById('m1').value;
+//     const r1 = document.getElementById('r1').value;
+//     checkByteSizeOfM(m1);
+//     getCipher(r1);
+
+// }
